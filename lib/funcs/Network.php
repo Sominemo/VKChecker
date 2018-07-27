@@ -2,7 +2,18 @@
 
 class Network {
     public static function Request($a, $o = []) {
-        $r = file_get_contents($a);
+        $postdata = http_build_query((length($o['POST']) > 0 ? $o['POST'] : []));
+
+        $opts = ['http' =>
+                    [
+                        'method'  => 'POST',
+                        'header'  => 'Content-type: application/x-www-form-urlencoded',
+                        'content' => $postdata
+                    ]
+                ];
+
+        $context  = stream_context_create($opts);
+        $r = file_get_contents($a, false, $context);
         if ($r === false) throw new Exception(self::MESSAGES["ERROR_REQ_RES"], self::CODES["ERROR_REQ_RES"]);
 
         $rd = $r;
@@ -11,7 +22,7 @@ class Network {
             $j = json_decode($r);
             if (json_last_error() !== JSON_ERROR_NONE) throw new Exception(self::MESSAGES["JSON_PARSE_ERR"], self::CODES["JSON_PARSE_ERR"]);
             $rd = $j;
-        } 
+        }
 
         return $rd;
     }
