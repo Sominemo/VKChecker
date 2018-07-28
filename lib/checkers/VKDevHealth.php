@@ -4,7 +4,10 @@ class VKDevHealth implements Checker {
 
     private static $data = [];
     private static $result = false;
-    private static $about = false;
+    private static $about = [
+        "name" => "VK Dev Platform Health",
+        
+    ];
 
     public static function work() {
 

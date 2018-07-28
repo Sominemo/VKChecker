@@ -1,4 +1,4 @@
-<?
+<?php
 
 class Network {
     public static function Request($a, $o = []) {
