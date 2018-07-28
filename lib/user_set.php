@@ -1,12 +1,12 @@
 <?php
 class EGV {
-      static private $data = [];
-      static private $init = false;
+      private static $data = [];
+      private static $init = false;
 
-      static public function __get($name)
+      public static function Get($name)
       {
             if (!self::$init) {
-            $r = json_decode(file_get_contents("priv/settings.json"));
+            $r = json_decode(file_get_contents("priv/settings.json"), true);
             if (json_last_error() !== JSON_ERROR_NONE) throw new Exception("Error Processing Settings", 2);  
             foreach ($r as $k => $v) {
                   if (is_array($v) && isset($v['action'])) {

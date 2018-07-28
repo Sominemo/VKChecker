@@ -2,7 +2,7 @@
 
 class Network {
     public static function Request($a, $o = []) {
-        $postdata = http_build_query((length($o['POST']) > 0 ? $o['POST'] : []));
+        $postdata = http_build_query((count($o['POST']) > 0 ? $o['POST'] : []));
 
         $opts = ['http' =>
                     [
