@@ -1,4 +1,4 @@
 {
-    "VK_TOKEN": "769531a8bdd27147c55263425a06e3a6df0163d29921466142a7a810572ca921aae8c6c06d2223338bcbd",
+    "VK_TOKEN": {"action": "readFile", "file": "priv/vktoken"},
     "DEV_MODE": 1
 }
