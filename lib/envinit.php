@@ -12,4 +12,18 @@ Checkers::AddNew('VKDevHealth');
 
 VKDevHealth::work();
 
-echo __("hello");
+$r = new FieldsContainer(["array", "CheckerInstance"]);
+$r->set([
+    [
+        "status" => 1,
+        "name" => "Wow",
+        "index" => "100"
+    ],
+    [
+        "status" => 1,
+        "name" => "Wow",
+        "index" => "100"
+    ]
+]);
+
+$r->get();
