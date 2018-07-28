@@ -2,7 +2,9 @@
 
 class Network {
     public static function Request($a, $o = []) {
+        if (!isset($o['POST'])) $o['POST'] = [];
         $postdata = http_build_query((count($o['POST']) > 0 ? $o['POST'] : []));
+        DevLog::w('NR ('.$a.') ['.print_r($o['POST'], true).']');
 
         $opts = ['http' =>
                     [

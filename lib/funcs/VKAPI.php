@@ -7,8 +7,16 @@ interface __VKAPI_DATA {
 
 class VKAPI implements __VKAPI_DATA {
 
+    protected static $token_mode = 1;
+
     static function TOKEN() {
-        return EGV::Get('VK_TOKEN');
+        switch (self::$token_mode) {
+            case 2:
+            return EGV::Get('VK_GROUP_TOKEN');
+
+            default:
+            return EGV::Get('VK_TOKEN');
+        }
     }
 
     static function callable() {
@@ -26,5 +34,9 @@ class VKAPI implements __VKAPI_DATA {
         if (!isset($s['v'])) $s['v'] = self::VERSION;
         $t = Network::Request($l, ['AS_JSON' => true, 'POST' => $s]);
         return $t;
+    }
+
+    static function tokenMode($m) {
+        if ($m === 2) self::$token_mode = 2; else self::$token_mode = 1;
     }
 }

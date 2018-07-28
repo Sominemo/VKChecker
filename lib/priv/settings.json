@@ -1,4 +1,5 @@
 {
     "VK_TOKEN": {"action": "readFile", "file": "priv/vktoken"},
-    "DEV_MODE": 1
+    "VK_GROUP_TOKEN": {"action": "readFile", "file": "priv/vktoken2"},
+    "DEV_MODE": true
 }
