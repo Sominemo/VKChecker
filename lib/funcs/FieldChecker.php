@@ -54,8 +54,8 @@ class FieldChecker {
 
         // Symbols
         if (isset($o['symbols'])) {
-            $slq = preg_quote($o['symbols']);
-            if (!preg_match('/([{$slq}]+)?/', $q)) return false;
+            $slq = $o['symbols'];
+            if (!preg_match("/^([{$slq}]+)?$/", $q)) return false;
         }
 
         // Numeric

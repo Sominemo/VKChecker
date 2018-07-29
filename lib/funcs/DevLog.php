@@ -6,7 +6,7 @@ class DevLog {
     public static function w($d) {
         if (EGV::Get('DEV_MODE')) {
         static::$log[] = $d;
-        file_put_contents('liblog.log', print_r(static::$log, true));
+        file_put_contents('liblog.log', print_r(self::$log, true));
         }
     }
 

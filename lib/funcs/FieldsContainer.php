@@ -3,9 +3,25 @@
 class __FieldsContainerProtectedLibrary {
     public static function get() {
         return [
-        "CheckerAbout" => [['name', 'about', 'id', 'dev'], []],
-        "CheckerResult" => [['main', 'details', 'info'], ['details' => new FieldsContainer(["array", "CheckerInstance"])]],
-        "CheckerInstance" => [['status', 'name', 'index'], ['status' => new FieldChecker(['numeric' => true, 'range' => [0, 3]])]],
+        "CheckerAbout" => [
+            ['name', 'about', 'id', 'dev'], 
+            [
+                "id" => new FieldChecker(['symbols' => 'a-zA-Z0-9'])
+            ]
+        ],
+        "CheckerResult" => [
+            ['main', 'details', 'info'], 
+            [
+                'main' => new FieldChecker(['numeric' => true, 'range' => [0, 3]]),
+                'details' => new FieldsContainer(["array", "CheckerInstance"])
+            ]
+        ],
+        "CheckerInstance" => [
+            ['status', 'name', 'index'], 
+            [
+                'status' => new FieldChecker(['numeric' => true, 'range' => [0, 3]])
+            ]
+        ],
     ];
 }
 }
