@@ -15,15 +15,19 @@ VKDevHealth::work();
 $r = new FieldsContainer(["array", "CheckerInstance"]);
 $r->set([
     [
-        "status" => 1,
+        "status" => 0,
         "name" => "Wow",
         "index" => "100"
     ],
     [
-        "status" => 1,
+        "status" => 3,
         "name" => "Wow",
         "index" => "100"
     ]
 ]);
 
-$r->get();
+
+print_r($r->get());
+
+//$r = new FieldChecker(['numeric' => true, 'range' => [0, 3]]);
+//$r->set(1);
