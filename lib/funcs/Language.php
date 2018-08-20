@@ -10,9 +10,9 @@ class Language {
 
     private static $clisteners = [];
 
-    protected static $langLib = [];
+    private static $langLib = [];
 
-    protected static $current = self::List[0];
+    private static $current = self::List[0];
 
     public function Set($a = "en") {
         if (!array_key_exists($a, self::List)) {self::Set(self::List[0]); return;}
@@ -28,6 +28,13 @@ class Language {
         $l = file_get_contents('langs/'.self::$current.'.json');
         $l = json_decode($l, true);
 
+        if ($l !== null) DevLog::w("Language: $l has been loaded or updated");
+        else {
+            DevLog::w("Language: $l has failed to be parsed as JSON");
+            self::$current = false;
+            return;
+        }
+
         self::$langLib = $l;
         foreach (self::$clisteners as $v) {
             $v(self::$current);
@@ -42,6 +49,10 @@ class Language {
 
     public static function GetLangLib() {
         return self::$langLib;
+    }
+
+    public static function Get() {
+        return self::$current;
     }
 }
 

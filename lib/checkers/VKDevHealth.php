@@ -19,6 +19,10 @@ class VKDevHealth implements Checker {
         self::$results = self::generate();
     }
 
+    public static function IsInited() {
+        return (self::$results === false ? false : true);
+    }
+
     private static function getData() {
         $r = Network::Request('https://vk.com/dev/health');
         preg_match('/var content = {\n +\'data\': (.+),.+header.+};\nhealthTable/is', $r, $t);
@@ -46,7 +50,7 @@ class VKDevHealth implements Checker {
         $r = [];
 
         foreach ($d as $v) {
-            if ($v[1] == 100) $s = 1;
+            if ($v[1] == 100) $s = 0;
             else if ($v[1] > 30) $s = 2;
             else $s = 3;
 

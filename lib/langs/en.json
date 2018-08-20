@@ -2,8 +2,8 @@
     "checker_VKDevHealth_name": "VK Dev Platform Health",
     "checker_VKDevHealth_about": "Checks Platform status from vk.com/dev/health page. Please note sometimes VK can tell fake information",
     
-    "checker_VKDevHealth_st_0": "We can't identify status bacause this checker returned incorrect data",
-    "checker_VKDevHealth_st_1": "VK Platform Health says all the systems work fine with 100% uptime",
+    "checker_VKDevHealth_st_0": "VK Platform Health says all the systems work fine with 100% uptime",
+    "checker_VKDevHealth_st_1": "We can't identify status bacause this checker returned incorrect data",
     "checker_VKDevHealth_st_2": "VK Platform Health says some of their systems work with uptime < 100%",
     "checker_VKDevHealth_st_3": "VK Platform Health says some of their systems work with uptime < 30%",
 

@@ -22,6 +22,22 @@ class __FieldsContainerProtectedLibrary {
                 'status' => new FieldChecker(['numeric' => true, 'range' => [0, 3]])
             ]
         ],
+        "CheckerGeneral" => [
+            ['main', 'all_instances', 'passed'],
+            [
+                'main' => new FieldChecker(['numeric' => true, 'range' => [0, 3]]),
+                'all_instances' => new FieldChecker(['numeric' => true]),
+                'passed' => new FieldChecker(['numeric' => true])
+            ]
+        ],
+        "GeneralCheckers" => [
+            ['status', 'info', 'checkers', 'all_instances', 'passed'],
+            [
+                'status' => new FieldChecker(['numeric' => true, 'range' => [0, 3]]),
+                'all_instances' => new FieldChecker(['numeric' => true]),
+                'passed' => new FieldChecker(['numeric' => true])
+            ]
+        ]
     ];
 }
 }
